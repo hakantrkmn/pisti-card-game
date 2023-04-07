@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 
 [Serializable]
 public struct TutorialPanels
@@ -9,6 +10,14 @@ public struct TutorialPanels
     public GameObject panelGameObject;
 }
 
+[Serializable]
+public struct Room
+{
+    public string roomName;
+    public int minBet;
+    public int maxBet;
+
+}
 
 #region Incremental Idle
 [Serializable]

@@ -1,10 +1,9 @@
 ﻿public enum ButtonTypes
 {
-    StartLevel,
-    RestartLevel,
-    OpenNextLevel,
-    PauseLevel,
-    ResetProgressData,
+    RoomArrow,
+    CreateRoom,
+    CreateRoomExit,
+    ProfileButton,
 }
 
 public enum InGamePanelTypes

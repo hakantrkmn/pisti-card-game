@@ -43,7 +43,15 @@ public static class EventManager
     public static Action<AnimationType, float> SetAnimation;
     #endregion
 
+    
+    public static Action<int> RoomArrowClicked;
+    public static Action CreateRoomClicked;
+    public static Action CreateRoomExitClicked;
+    public static Action ProfileButtonClicked;
+
  
+    public static Func<PlayerData> GetPlayerData;
+    public static Func<RoomData> GetRoomData;
 
 
 }

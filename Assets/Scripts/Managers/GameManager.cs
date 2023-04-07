@@ -10,18 +10,32 @@ public class GameManager : MonoBehaviour
     private bool isGameCompleted;
     private bool isGameStarted;
     private Scene thisScene;
-
-
+    public PlayerData playerData;
+    public RoomData roomData;
 
     //---------------------------------------------------------------------------------
     private void OnEnable()
     {
+        EventManager.GetPlayerData += GetPlayerData;
+        EventManager.GetRoomData += GetRoomData;
+
         EventManager.StartLevel += LevelStarted;
         EventManager.SetWin += SetWinGame;
         EventManager.SetLose += SetLoseGame;
         EventManager.IsGameCompleted = () => isGameCompleted;
         EventManager.IsGameStarted = () => isGameStarted;
     }
+
+    private RoomData GetRoomData()
+    {
+        return roomData;
+    }
+
+    private PlayerData GetPlayerData()
+    {
+        return playerData;
+    }
+
     private void OnDisable()
     {
         EventManager.StartLevel -= LevelStarted;
@@ -40,7 +54,6 @@ public class GameManager : MonoBehaviour
         isGameStarted = true;
         EventManager.OnGameStarted?.Invoke();
 
-        //ElephantSDK.Elephant.LevelStarted(gameData.fakeLevelIndex + 1);
         thisScene = SceneManager.GetActiveScene();
     }
 
