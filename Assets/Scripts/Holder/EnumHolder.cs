@@ -12,6 +12,20 @@ public enum InGamePanelTypes
     ProgressBar,
     Both
 }
+public enum GameStates
+{
+    Start,
+    Game,
+    End
+}
+
+public enum CardTypes
+{
+    Clubs,
+    Diamonds,
+    Hearts,
+    Spades
+}
 public enum MoneyStates
 {
     OnDesk,

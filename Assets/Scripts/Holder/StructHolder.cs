@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 
 [Serializable]
 public struct TutorialPanels
@@ -18,6 +19,17 @@ public struct Room
     public int maxBet;
 
 }
+
+[Serializable]
+public struct Card
+{
+    public CardTypes cardType;
+    public Sprite image;
+    public Color color;
+    public string number;
+}
+
+
 
 #region Incremental Idle
 [Serializable]

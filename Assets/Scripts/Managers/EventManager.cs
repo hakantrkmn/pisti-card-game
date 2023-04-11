@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -49,9 +50,19 @@ public static class EventManager
     public static Action CreateRoomExitClicked;
     public static Action ProfileButtonClicked;
 
+    public static Action<List<CardController>> SetPlayerCards;
+    public static Action<List<CardController>> SetAICards;
+    public static Action<CardController,int> CardPlaced;
+    public static Action<GameStates> ChangeGameState;
+    public static Action EndTurn;
+
  
     public static Func<PlayerData> GetPlayerData;
     public static Func<RoomData> GetRoomData;
+    public static Func<CardData> GetCardData;
+    public static Func<Transform> GetCardPlacePos;
+    public static Func<List<CardController>> GetPlacedCards;
 
+    public static Func<int> GetPlayIndex;
 
 }

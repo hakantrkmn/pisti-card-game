@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e104259d0e77f47fb9f1bcd89306e4e4, type: 3}
+  m_Name: CardData
+  m_EditorClassIdentifier: 
+  cards:
+  - cardType: 0
+    image: {fileID: 1700988935, guid: 26ae56413cb234e2d83595ceb36732ca, type: 3}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    number: 
+  - cardType: 1
+    image: {fileID: -871664749, guid: 26ae56413cb234e2d83595ceb36732ca, type: 3}
+    color: {r: 0.7607844, g: 0.098039225, b: 0.14117648, a: 0}
+    number: 
+  - cardType: 2
+    image: {fileID: -1607757524, guid: 26ae56413cb234e2d83595ceb36732ca, type: 3}
+    color: {r: 0.7607844, g: 0.098039225, b: 0.14117648, a: 0}
+    number: 
+  - cardType: 3
+    image: {fileID: -1690852489, guid: 26ae56413cb234e2d83595ceb36732ca, type: 3}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    number: 
+  specialCards:
+  - cardType: 0
+    image: {fileID: 1700988935, guid: 26ae56413cb234e2d83595ceb36732ca, type: 3}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    number: k
+  - cardType: 0
+    image: {fileID: 1700988935, guid: 26ae56413cb234e2d83595ceb36732ca, type: 3}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    number: q
+  - cardType: 0
+    image: {fileID: 1700988935, guid: 26ae56413cb234e2d83595ceb36732ca, type: 3}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    number: j
+  - cardType: 1
+    image: {fileID: -871664749, guid: 26ae56413cb234e2d83595ceb36732ca, type: 3}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    number: k
+  - cardType: 1
+    image: {fileID: -871664749, guid: 26ae56413cb234e2d83595ceb36732ca, type: 3}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    number: q
+  - cardType: 1
+    image: {fileID: -871664749, guid: 26ae56413cb234e2d83595ceb36732ca, type: 3}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    number: j
+  - cardType: 2
+    image: {fileID: -1607757524, guid: 26ae56413cb234e2d83595ceb36732ca, type: 3}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    number: k
+  - cardType: 2
+    image: {fileID: -1607757524, guid: 26ae56413cb234e2d83595ceb36732ca, type: 3}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    number: q
+  - cardType: 2
+    image: {fileID: -1607757524, guid: 26ae56413cb234e2d83595ceb36732ca, type: 3}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    number: j
+  - cardType: 3
+    image: {fileID: -1690852489, guid: 26ae56413cb234e2d83595ceb36732ca, type: 3}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    number: k
+  - cardType: 3
+    image: {fileID: -1690852489, guid: 26ae56413cb234e2d83595ceb36732ca, type: 3}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    number: q
+  - cardType: 3
+    image: {fileID: -1690852489, guid: 26ae56413cb234e2d83595ceb36732ca, type: 3}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    number: j

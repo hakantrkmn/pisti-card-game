@@ -12,10 +12,12 @@ public class GameManager : MonoBehaviour
     private Scene thisScene;
     public PlayerData playerData;
     public RoomData roomData;
+    public CardData cardData;
 
     //---------------------------------------------------------------------------------
     private void OnEnable()
     {
+        EventManager.GetCardData += GetCardData;
         EventManager.GetPlayerData += GetPlayerData;
         EventManager.GetRoomData += GetRoomData;
 
@@ -24,6 +26,11 @@ public class GameManager : MonoBehaviour
         EventManager.SetLose += SetLoseGame;
         EventManager.IsGameCompleted = () => isGameCompleted;
         EventManager.IsGameStarted = () => isGameStarted;
+    }
+
+    private CardData GetCardData()
+    {
+        return cardData;
     }
 
     private RoomData GetRoomData()
