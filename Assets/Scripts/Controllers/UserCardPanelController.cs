@@ -40,7 +40,7 @@ public class UserCardPanelController : CardPanel
 
     private void SetWin()
     {
-        EventManager.GetPlayerData().money += EventManager.GetRoomData().bet;
+        EventManager.GetPlayerData().money += EventManager.GetRoomData().bet*(EventManager.GetRoomData().aiAmount-1);
         EventManager.GetPlayerData().winAmount++;
 
     }

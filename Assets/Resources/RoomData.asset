@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2b3dcb843d904b4f892e480962a0865, type: 3}
   m_Name: RoomData
   m_EditorClassIdentifier: Assembly-CSharp::Room
+  maxPoint: 20
   roomPrefab: {fileID: 846581146151596733, guid: f77fd5366cc764a62aec87216773de5f,
     type: 3}
-  roomIndex: 2
+  roomIndex: 0
   rooms:
   - roomName: Newbies
     minBet: 250

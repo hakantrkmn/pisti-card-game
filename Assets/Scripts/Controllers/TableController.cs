@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -15,7 +16,7 @@ public class TableController : MonoBehaviour
 
     public List<Card> createdCards;
     public List<Card> placedCards;
-
+    public TextMeshProUGUI cardAmountText;
 
     int playIndex;
     
@@ -260,5 +261,7 @@ public class TableController : MonoBehaviour
 
             cards.Clear();
         }
+
+        cardAmountText.text = createdCards.Count.ToString();
     }
 }

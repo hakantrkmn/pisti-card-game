@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   username: hakantrkmn
-  money: 1000000
-  winAmount: 0
+  money: 10000
+  winAmount: 1
   loseAmount: 1

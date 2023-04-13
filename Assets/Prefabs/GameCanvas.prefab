@@ -220,6 +220,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3081433484951497608, guid: 9e537a26f19a342778473e7749e87d63,
         type: 3}
+      propertyPath: cardAmountText
+      value: 
+      objectReference: {fileID: 3719174827156717010}
+    - target: {fileID: 3081433484951497608, guid: 9e537a26f19a342778473e7749e87d63,
+        type: 3}
       propertyPath: allPlayers.Array.data[0]
       value: 
       objectReference: {fileID: 7827502756329659398}
@@ -245,6 +250,18 @@ PrefabInstance:
       objectReference: {fileID: 7968059810636388025}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e537a26f19a342778473e7749e87d63, type: 3}
+--- !u!114 &3719174827156717010 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8631824402164814577, guid: 9e537a26f19a342778473e7749e87d63,
+    type: 3}
+  m_PrefabInstance: {fileID: 4924491869566873379}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7827502754904661355 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2952020542689833544, guid: 9e537a26f19a342778473e7749e87d63,
