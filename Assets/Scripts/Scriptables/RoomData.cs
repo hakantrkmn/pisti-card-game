@@ -9,4 +9,7 @@ public class RoomData : ScriptableObject
    public GameObject roomPrefab;
    public int roomIndex;
    public List<Room> rooms;
+
+   public int aiAmount;
+   public int bet;
 }

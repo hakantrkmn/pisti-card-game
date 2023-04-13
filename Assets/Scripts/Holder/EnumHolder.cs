@@ -4,6 +4,11 @@
     CreateRoom,
     CreateRoomExit,
     ProfileButton,
+    Play,
+    CreateTable,
+    NewGame,
+    BackToLobby,
+    SideMenu
 }
 
 public enum InGamePanelTypes

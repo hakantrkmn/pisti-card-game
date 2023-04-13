@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CreateGamePanelManager : MonoBehaviour
@@ -13,7 +14,23 @@ public class CreateGamePanelManager : MonoBehaviour
     public TextMeshProUGUI minBet;
     public TextMeshProUGUI maxBet;
 
-    
+    private void OnEnable()
+    {
+        EventManager.CreateTableClicked += CreateTableClicked;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.CreateTableClicked -= CreateTableClicked;
+    }
+
+    private void CreateTableClicked()
+    {
+        var roomData = EventManager.GetRoomData();
+        roomData.bet = (int)slider.value;
+        SceneManager.LoadScene(1);
+    }
+
 
     private void Start()
     {
@@ -32,6 +49,6 @@ public class CreateGamePanelManager : MonoBehaviour
 
     void Update()
     {
-        currentBet.text = slider.value.ToString();
+        currentBet.text = ((int)slider.value).ToString();
     }
 }

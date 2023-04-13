@@ -19,6 +19,21 @@ public class ButtonController : MonoBehaviour
             case ButtonTypes.CreateRoom:
                 EventManager.CreateRoomClicked();
                 break;
+            case ButtonTypes.SideMenu:
+                EventManager.SideMenuClicked();
+                break;
+            case ButtonTypes.NewGame:
+                EventManager.NewGameClicked();
+                break;
+            case ButtonTypes.BackToLobby:
+                EventManager.BackToLobbyClicked();
+                break;
+            case ButtonTypes.CreateTable:
+                EventManager.CreateTableClicked();
+                break;
+            case ButtonTypes.Play:
+                EventManager.PlayButtonClicked();
+                break;
             case ButtonTypes.CreateRoomExit:
                 EventManager.CreateRoomExitClicked();
                 break;

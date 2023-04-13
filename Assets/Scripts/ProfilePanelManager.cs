@@ -21,10 +21,5 @@ public class ProfilePanelManager : MonoBehaviour
         moneyAmountText.text = playerData.money.ToString();
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

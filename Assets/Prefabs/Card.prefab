@@ -221,7 +221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5322449501264399228}
   - component: {fileID: 5322449501264399230}
-  - component: {fileID: 1790013284134072831}
+  - component: {fileID: 9160154379520044362}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -259,7 +259,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5322449501264399229}
   m_CullTransparentMesh: 1
---- !u!114 &1790013284134072831
+--- !u!114 &9160154379520044362
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -268,8 +268,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5322449501264399229}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ddfd52c6516c4f16add907f53368de4, type: 3}
+  m_Script: {fileID: 11500000, guid: 261cd472f12b74e1fbff882cb107611d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 7361534712293913320}
-  number: {fileID: 5555781988679630178}
+  cardType: 0
+  image: {fileID: 0}
+  value: 
+  closedCardSprite: {fileID: 21300000, guid: 83e7f8609445e48cf9960427672d3bbb, type: 3}
+  valueText: {fileID: 5555781988679630178}
+  imageIMG: {fileID: 7361534712293913320}
+  isClosed: 0
+  placePos: {fileID: 0}
+  canDrag: 0

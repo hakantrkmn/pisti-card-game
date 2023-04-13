@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Room
   roomPrefab: {fileID: 846581146151596733, guid: f77fd5366cc764a62aec87216773de5f,
     type: 3}
+  roomIndex: 2
   rooms:
   - roomName: Newbies
     minBet: 250
@@ -24,3 +25,5 @@ MonoBehaviour:
   - roomName: Nobles
     minBet: 50000
     maxBet: 1000000
+  aiAmount: 2
+  bet: 5000

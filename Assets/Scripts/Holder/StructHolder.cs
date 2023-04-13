@@ -21,15 +21,19 @@ public struct Room
 }
 
 [Serializable]
-public struct Card
+public class CardStats
 {
     public CardTypes cardType;
     public Sprite image;
-    public Color color;
-    public string number;
+    public string value;
 }
 
-
+[Serializable]
+public class AIProfile
+{
+    public Sprite photo;
+    public string username;
+}
 
 #region Incremental Idle
 [Serializable]

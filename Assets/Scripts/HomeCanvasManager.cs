@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,10 +10,13 @@ public class HomeCanvasManager : MonoBehaviour
 {
     public TextMeshProUGUI playerUsername;
     public TextMeshProUGUI playerMoney;
-
-    public GameObject gamePanel;
+    [FoldoutGroup("Game Panels")]
+    public GameObject gamePanel;  
+    [FoldoutGroup("Game Panels")]
     public GameObject topPanel;
-    public GameObject createRoomPanel;
+    [FoldoutGroup("Game Panels")]
+    public GameObject createRoomPanel;    
+    [FoldoutGroup("Game Panels")]
     public GameObject profilePanel;
 
 

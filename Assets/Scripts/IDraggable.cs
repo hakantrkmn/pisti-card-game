@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public interface IDraggable : IDragHandler, IEndDragHandler
+public interface IDraggable : IDragHandler, IEndDragHandler,IBeginDragHandler
 {
     public void OnDrag(PointerEventData eventData)
     {
@@ -12,4 +12,6 @@ public interface IDraggable : IDragHandler, IEndDragHandler
     public void OnEndDrag(PointerEventData eventData)
     {
     }
+    
+   
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GamePanelController : MonoBehaviour
 {
@@ -16,14 +17,33 @@ public class GamePanelController : MonoBehaviour
 
     private void OnEnable()
     {
+        EventManager.PlayButtonClicked += PlayButtonClicked;
         EventManager.RoomArrowClicked += RoomArrowClicked;
     }
 
-   
+    private void PlayButtonClicked()
+    {
+        var roomData = EventManager.GetRoomData();
+        var playerData = EventManager.GetPlayerData();
+        roomData.roomIndex = roomIndex;
+        if (playerData.money >roomData.rooms[roomIndex].maxBet)
+        {
+            roomData.bet = roomData.rooms[roomIndex].maxBet;
+
+        }
+        else
+        {
+            roomData.bet = playerData.money;
+
+        }
+        SceneManager.LoadScene(1);
+
+    }
 
 
     private void OnDisable()
     {
+        EventManager.PlayButtonClicked -= PlayButtonClicked;
         EventManager.RoomArrowClicked -= RoomArrowClicked;
     }
 

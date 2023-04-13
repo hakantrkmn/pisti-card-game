@@ -14,18 +14,33 @@ public class GameManager : MonoBehaviour
     public RoomData roomData;
     public CardData cardData;
 
+    public AIProfiles aiProfiles;
     //---------------------------------------------------------------------------------
     private void OnEnable()
     {
         EventManager.GetCardData += GetCardData;
         EventManager.GetPlayerData += GetPlayerData;
         EventManager.GetRoomData += GetRoomData;
+        EventManager.GetAiProfiles += () => aiProfiles;
+
+        EventManager.NewGameClicked += NewGameClicked;
+        EventManager.BackToLobbyClicked += BackToLobbyClicked;
 
         EventManager.StartLevel += LevelStarted;
         EventManager.SetWin += SetWinGame;
         EventManager.SetLose += SetLoseGame;
         EventManager.IsGameCompleted = () => isGameCompleted;
         EventManager.IsGameStarted = () => isGameStarted;
+    }
+
+    private void BackToLobbyClicked()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    private void NewGameClicked()
+    {
+        SceneManager.LoadScene(1);
     }
 
     private CardData GetCardData()
@@ -45,6 +60,8 @@ public class GameManager : MonoBehaviour
 
     private void OnDisable()
     {
+        EventManager.BackToLobbyClicked -= BackToLobbyClicked;
+        EventManager.NewGameClicked -= NewGameClicked;
         EventManager.StartLevel -= LevelStarted;
         EventManager.SetWin -= SetWinGame;
         EventManager.SetLose -= SetLoseGame;
@@ -68,30 +85,13 @@ public class GameManager : MonoBehaviour
     //---------------------------------------------------------------------------------
     private void SetWinGame()
     {
-        if (_isProgress == true)
-            return;
-
-        isGameCompleted = true;
-        EventManager.OnGameCompleted?.Invoke();
-
-
-        gameData.fakeLevelIndex++;
-
-        if (gameData.fakeLevelIndex % gameData.levelLoopValue == 0)
-            gameData.realLevelIndex = 0;
-        else
-            gameData.realLevelIndex = gameData.fakeLevelIndex % gameData.levelLoopValue;
-
-        _isProgress = true;
-
-        SaveManager.SaveGameData(gameData);
+      
     }
 
 
     //---------------------------------------------------------------------------------
     private void SetLoseGame()
     {
-        isGameCompleted = true;
-        EventManager.OnGameCompleted?.Invoke();
+        
     }
 }
