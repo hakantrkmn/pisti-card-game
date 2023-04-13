@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
-public abstract class CardPanel : MonoBehaviour
+public abstract class CardPanel : MonoBehaviour // cardpaneli base classı
 {
     public List<Card> cards;
     public int collectedCardAmount;
@@ -21,14 +22,8 @@ public abstract class CardPanel : MonoBehaviour
     }
 
 
-    public virtual void PlayerWonTheGame()
-    {
-        
-    }
-    public virtual void PlayerLostTheGame()
-    {
-        
-    }
+    public virtual void PlayerWonTheGame(){}
+    public virtual void PlayerLostTheGame() { }
     public virtual void PlayerHasMostCard()
     {
         point += 10;
@@ -68,9 +63,14 @@ public abstract class CardPanel : MonoBehaviour
                 {
                     point += 1;
                 }
+
+                card.transform.DOMove(transform.position, .5f).OnComplete((() =>
+                {
+                    Destroy(card.gameObject);
+                }));
             }
             collectedCardAmount += placedCards.Count;
-
+            
         }
     }
     private void Pisti()

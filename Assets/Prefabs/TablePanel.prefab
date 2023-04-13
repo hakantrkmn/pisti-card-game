@@ -46,7 +46,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1946446076170313784}
   - component: {fileID: 1946446076170313789}
-  - component: {fileID: 1946446076170313790}
   - component: {fileID: 1946446076170313791}
   m_Layer: 5
   m_Name: TablePanel
@@ -85,36 +84,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1946446076170313785}
   m_CullTransparentMesh: 1
---- !u!114 &1946446076170313790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1946446076170313785}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &1946446076170313791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,14 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ecc86e188175459a83f8c88a52586fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: 0
   allCardsPoint: {fileID: 1946446076390133044}
-  cardPrefab: {fileID: 5322449501264399229, guid: b4e42811b356e4cbc8d2f33b9da0a24b,
-    type: 3}
+  placePos: {fileID: 1946446075996580485}
   createdCards: []
   placedCards: []
-  placePos: {fileID: 1946446075996580485}
-  playIndex: 0
   allPlayers:
   - {fileID: 0}
   - {fileID: 0}

@@ -25,7 +25,7 @@ public class Card : BaseCard
         
         if ((transform.position-placePos.position).magnitude < 50)
         {
-            transform.parent.GetComponent<CardPanelController>().cards.Remove(this);
+            transform.parent.GetComponent<UserCardPanelController>().cards.Remove(this);
             transform.position = placePos.position;
             transform.parent = placePos;
             EventManager.CardPlaced(this);

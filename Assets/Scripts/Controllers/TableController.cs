@@ -8,30 +8,43 @@ using Random = UnityEngine.Random;
 
 public class TableController : MonoBehaviour
 {
-    public GameStates gameState;
+    GameStates gameState;
     public Transform allCardsPoint;
+    public Transform placePos;
 
-    public GameObject cardPrefab;
 
     public List<Card> createdCards;
     public List<Card> placedCards;
 
-    public Transform placePos;
 
-    public int playIndex;
-
+    int playIndex;
+    
     public List<CardPanel> allPlayers;
+
+    #region event subscribe
+
+    
 
     private void OnEnable()
     {
         EventManager.DeckDone += DeckDone;
         EventManager.ChangeGameState += ChangeGameState;
-        EventManager.EndTurn += EndTurn;
-        EventManager.GetPlacedCards += () => placedCards;
-        EventManager.GetPlayIndex += () => playIndex;
         EventManager.CardPlaced += CardPlaced;
         EventManager.GetCardPlacePos += GetCardPlacePos;
+        
+        EventManager.GetPlacedCards += () => placedCards;
+        EventManager.GetPlayIndex += () => playIndex;
     }
+    
+    private void OnDisable()
+    {
+        EventManager.GetCardPlacePos -= GetCardPlacePos;
+        EventManager.DeckDone -= DeckDone;
+        EventManager.ChangeGameState -= ChangeGameState;
+        EventManager.CardPlaced -= CardPlaced;
+    }
+    #endregion
+
 
     private void DeckDone()
     {
@@ -50,19 +63,17 @@ public class TableController : MonoBehaviour
         if (!CheckIfGameOver())
         {
             CreateCards();
-            Put3ClosedCard();
+            Put4ClosedCard();
             DealCards();
         }
-        else
-        {
-        }
+        
     }
 
-    public bool CheckIfGameOver()
+    bool CheckIfGameOver()
     {
         foreach (var player in allPlayers)
         {
-            if (player.point > 20)
+            if (player.point > EventManager.GetRoomData().maxPoint)
             {
                 player.PlayerWonTheGame();
                 return true;
@@ -78,43 +89,28 @@ public class TableController : MonoBehaviour
         gameState = obj;
     }
 
-    private void EndTurn()
-    {
-        if (createdCards.Count == 0)
-        {
-            //EventManager.DeckDone();
-        }
-    }
 
-    private void OnDisable()
-    {
-        EventManager.GetCardPlacePos -= GetCardPlacePos;
-        EventManager.DeckDone -= DeckDone;
-        EventManager.ChangeGameState -= ChangeGameState;
-        EventManager.CardPlaced -= CardPlaced;
-        EventManager.EndTurn -= EndTurn;
-    }
-
+  
     private void CardPlaced(Card card)
     {
         placedCards.Add(card);
 
-        if (placedCards.Count == 2)
+        if (placedCards.Count == 2) // 2 kart varsa pişti mi diye kontrol et
         {
             CheckForPisti(card);
         }
-        else if (placedCards.Count > 2)
+        else if (placedCards.Count > 2) // 2den fazlaysa son kartla aynı değere mi sahip kontrol et
         {
             CheckForEquality();
         }
 
-        if (playIndex == allPlayers.Count - 1)
+        if (playIndex == allPlayers.Count - 1) // play index sona geldiyse sıfırla
         {
-            if (allPlayers[0].cards.Count == 0 && createdCards.Count != 0)
+            if (allPlayers[0].cards.Count == 0 && createdCards.Count != 0) // son oyuncu oynadıysa ve kart kalmışsa kart dağıt
             {
                 DealCards();
             }
-            else if (createdCards.Count == 0 && allPlayers[0].cards.Count == 0)
+            else if (createdCards.Count == 0 && allPlayers[0].cards.Count == 0) // son oyuncu oynamışsa ve 52 kart bitmişse kart dağıt
             {
                 EventManager.DeckDone();
             }
@@ -128,10 +124,10 @@ public class TableController : MonoBehaviour
         }
 
 
-        EventManager.EndTurn();
+        EventManager.EndTurn(); // sırayı sonraki oyuncuya geçir
     }
 
-    public void SetPlayersIndex()
+    void SetPlayersIndex() // her oyuncuya index atayıp bu indexe göre oyun oynuyoruz
     {
         allPlayers.RemoveRange(EventManager.GetRoomData().aiAmount,allPlayers.Count-EventManager.GetRoomData().aiAmount);
         for (int i = 0; i < EventManager.GetRoomData().aiAmount; i++)
@@ -144,17 +140,12 @@ public class TableController : MonoBehaviour
         }
     }
 
-    public void ClearCards()
+    void ClearCards() 
     {
-        foreach (var card in placedCards)
-        {
-            Destroy(card.gameObject);
-        }
-
         placedCards.Clear();
     }
 
-    public void CheckForEquality()
+    void CheckForEquality() // son iki kart eşitmi diye kontrol etme
     {
         if (placedCards[placedCards.Count - 1].value == placedCards[placedCards.Count - 2].value &&
             !placedCards[placedCards.Count - 2].isClosed)
@@ -164,7 +155,7 @@ public class TableController : MonoBehaviour
         }
     }
 
-    public bool CheckForPisti(Card card)
+    bool CheckForPisti(Card card) // pişti kontrolu
     {
         if (placedCards[0].value == card.value && !placedCards[0].isClosed)
         {
@@ -188,13 +179,12 @@ public class TableController : MonoBehaviour
     {
         SetPlayersIndex();
         CreateCards();
-        Put3ClosedCard();
+        Put4ClosedCard();
         DealCards();
 
         EventManager.ChangeGameState(GameStates.Game);
     }
-
-    public void CreateCards()
+    void CreateCards()// 52 tane kart oluştur
     {
         var cardData = EventManager.GetCardData();
 
@@ -202,6 +192,7 @@ public class TableController : MonoBehaviour
         {
             for (int j = 1; j < 11; j++)
             {
+                var cardPrefab = EventManager.GetCardData().cardPrefab;
                 var card = Instantiate(cardPrefab, Vector3.zero, quaternion.identity, allCardsPoint)
                     .GetComponent<Card>();
                 card.transform.localPosition = Vector3.zero;
@@ -213,6 +204,7 @@ public class TableController : MonoBehaviour
 
         for (int i = 0; i < cardData.specialCards.Count; i++)
         {
+            var cardPrefab = EventManager.GetCardData().cardPrefab;
             var card = Instantiate(cardPrefab, Vector3.zero, quaternion.identity, allCardsPoint).GetComponent<Card>();
             card.transform.localPosition = Vector3.zero;
             card.SetCard(cardData.specialCards[i]);
@@ -222,7 +214,7 @@ public class TableController : MonoBehaviour
         ShuffleList();
     }
 
-    public void ShuffleList()
+    void ShuffleList() // desteyi karıştır
     {
         for (int i = 0; i < createdCards.Count; i++)
         {
@@ -232,8 +224,7 @@ public class TableController : MonoBehaviour
             createdCards[randomIndex] = temp;
         }
     }
-
-    public void Put3ClosedCard()
+    void Put4ClosedCard() // 3 kartı kapalı birini açık koy
     {
         for (int i = 0; i < 3; i++)
         {
@@ -251,7 +242,7 @@ public class TableController : MonoBehaviour
         createdCards.Remove(createdCards[0]);
     }
 
-    public void DealCards()
+    void DealCards() // kartları dağıt
     {
         for (int i = 0; i < allPlayers.Count; i++)
         {

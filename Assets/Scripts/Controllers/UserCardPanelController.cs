@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CardPanelController : CardPanel
+public class UserCardPanelController : CardPanel
 {
     public PlayerPanelManager panelManager;
     public bool canPlay;
@@ -35,7 +35,7 @@ public class CardPanelController : CardPanel
     private void SetLose()
     {
         EventManager.GetPlayerData().money -= EventManager.GetRoomData().bet;
-        EventManager.GetPlayerData().loseAmount--;
+        EventManager.GetPlayerData().loseAmount++;
     }
 
     private void SetWin()

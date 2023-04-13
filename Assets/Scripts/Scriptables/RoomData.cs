@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class RoomData : ScriptableObject
 {
+   public int maxPoint;
    public GameObject roomPrefab;
    public int roomIndex;
    public List<Room> rooms;

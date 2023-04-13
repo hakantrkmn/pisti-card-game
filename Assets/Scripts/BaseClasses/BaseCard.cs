@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,18 +8,25 @@ using UnityEngine.UI;
 
 public abstract class BaseCard : MonoBehaviour,IDraggable
 {
+    [FoldoutGroup("Card")]
     public CardTypes cardType;
+    [FoldoutGroup("Card")]
     public Sprite image;
+    [FoldoutGroup("Card")]
     public string value;
-
-    public Vector3 firstPos;
+    [FoldoutGroup("Card")]
     public Sprite closedCardSprite;
+    [FoldoutGroup("Card")]
     public TextMeshProUGUI valueText;
+    [FoldoutGroup("Card")]
     public Image imageIMG;
+    [HideInInspector]
     public bool isClosed;
-    public Transform placePos;
+    protected Transform placePos;
+    [HideInInspector]
     public bool canDrag;
-    
+    protected Vector3 firstPos;
+
     public void SetCard(CardStats createdCard)
     {
         image = createdCard.image;

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e104259d0e77f47fb9f1bcd89306e4e4, type: 3}
   m_Name: CardData
   m_EditorClassIdentifier: 
+  cardPrefab: {fileID: 5322449501264399229, guid: b4e42811b356e4cbc8d2f33b9da0a24b,
+    type: 3}
   cards:
   - cardType: 0
     image: {fileID: 1700988935, guid: 26ae56413cb234e2d83595ceb36732ca, type: 3}
@@ -55,7 +57,7 @@ MonoBehaviour:
     value: j
   - cardType: 3
     image: {fileID: -1690852489, guid: 26ae56413cb234e2d83595ceb36732ca, type: 3}
-    value: kq
+    value: k
   - cardType: 3
     image: {fileID: -1690852489, guid: 26ae56413cb234e2d83595ceb36732ca, type: 3}
     value: q

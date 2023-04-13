@@ -34,7 +34,7 @@ public class AICardPanelController : CardPanel
     {
         if (playIndex == EventManager.GetPlayIndex())
         {
-            PlayRightCard();
+            FindRightCard();
         }
     }
 
@@ -52,7 +52,7 @@ public class AICardPanelController : CardPanel
         {
             if (playIndex == EventManager.GetPlayIndex())
             {
-                PlayRightCard();
+                FindRightCard();
             }
         }
     }
@@ -68,7 +68,7 @@ public class AICardPanelController : CardPanel
         base.PlayerHasMostCard();
         aiPanelManager.UpdateScore(point);
     }
-    void PlayRightCard()
+    void FindRightCard()
     {
         if (EventManager.GetPlacedCards().Count > 0)
         {

@@ -13,20 +13,31 @@ public class AIPanelManager : MonoBehaviour
     public int score;
     void Start()
     {
-        var cellSize = new Vector2(cardPanel.GetComponent<RectTransform>().rect.width / 4,
-            cardPanel.GetComponent<RectTransform>().rect.height);
-        cardPanel.GetComponent<GridLayoutGroup>().cellSize = cellSize;
+        SetCardSize();
 
+        SetProfile();
+    }
+
+    private void SetProfile()
+    {
         var profile = EventManager.GetAiProfiles().profiles[EventManager.GetAiProfiles().profileIndex];
         EventManager.GetAiProfiles().profileIndex++;
-        if (EventManager.GetAiProfiles().profileIndex>=EventManager.GetAiProfiles().profiles.Count)
+        if (EventManager.GetAiProfiles().profileIndex >= EventManager.GetAiProfiles().profiles.Count)
         {
             EventManager.GetAiProfiles().profileIndex = 0;
         }
+
         var roomData = EventManager.GetRoomData();
         usernameText.text = profile.username;
         betText.text = roomData.bet.ToString();
         scoreText.text = score.ToString();
+    }
+
+    private void SetCardSize()
+    {
+        var cellSize = new Vector2(cardPanel.GetComponent<RectTransform>().rect.width / 4,
+            cardPanel.GetComponent<RectTransform>().rect.height);
+        cardPanel.GetComponent<GridLayoutGroup>().cellSize = cellSize;
     }
 
     public void UpdateScore(int increase)
