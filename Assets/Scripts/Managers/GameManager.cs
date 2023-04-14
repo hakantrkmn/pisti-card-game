@@ -5,11 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameData gameData;
-    private bool _isProgress;
-    private bool isGameCompleted;
-    private bool isGameStarted;
-    private Scene thisScene;
+    
     public PlayerData playerData;
     public RoomData roomData;
     public CardData cardData;
@@ -26,11 +22,8 @@ public class GameManager : MonoBehaviour
         EventManager.NewGameClicked += NewGameClicked;
         EventManager.BackToLobbyClicked += BackToLobbyClicked;
 
-        EventManager.StartLevel += LevelStarted;
-        EventManager.SetWin += SetWinGame;
-        EventManager.SetLose += SetLoseGame;
-        EventManager.IsGameCompleted = () => isGameCompleted;
-        EventManager.IsGameStarted = () => isGameStarted;
+       
+       
     }
 
     private void BackToLobbyClicked()
@@ -62,36 +55,8 @@ public class GameManager : MonoBehaviour
     {
         EventManager.BackToLobbyClicked -= BackToLobbyClicked;
         EventManager.NewGameClicked -= NewGameClicked;
-        EventManager.StartLevel -= LevelStarted;
-        EventManager.SetWin -= SetWinGame;
-        EventManager.SetLose -= SetLoseGame;
+     
     }
 
 
-    //---------------------------------------------------------------------------------
-   
-
-
-    //---------------------------------------------------------------------------------
-    private void LevelStarted()
-    {
-        isGameStarted = true;
-        EventManager.OnGameStarted?.Invoke();
-
-        thisScene = SceneManager.GetActiveScene();
-    }
-
-
-    //---------------------------------------------------------------------------------
-    private void SetWinGame()
-    {
-      
-    }
-
-
-    //---------------------------------------------------------------------------------
-    private void SetLoseGame()
-    {
-        
-    }
 }
