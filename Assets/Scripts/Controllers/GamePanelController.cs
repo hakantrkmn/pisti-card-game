@@ -1,14 +1,27 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GamePanelController : MonoBehaviour
 {
     public int roomIndex;
     public TextMeshProUGUI roomNameText;
+
+
+ 
+    [Button]
+    public void SetCellSize()
+    {
+        var layout = GetComponent<GridLayoutGroup>();
+        var cellSize = new Vector2(GetComponent<RectTransform>().rect.width,
+            GetComponent<RectTransform>().rect.height / 2);
+        layout.cellSize = cellSize;
+    }
 
     private void Start()
     {
